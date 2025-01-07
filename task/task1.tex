@@ -6,7 +6,10 @@
 \usepackage[ngerman]{babel}
 \usepackage[a4paper, margin=2.5cm]{geometry}
 \usepackage{spacingtricks}
+\usepackage{svg}
 
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
 \onehalfspacing
 
 \title{Werkzeuge für das wissenschaftliche Arbeiten}
@@ -19,50 +22,49 @@
 
 \section{Projektaufgabe}
 In dieser Aufgabe beschäftigen wir uns mit Objektorientierung in Python.
-Der Fokus liegt auf der Implementierung einer Klasse, dabei nutzen wir insbesondere auch Magic Methods.\\
-\\
-\hspace*{2cm}\includegraphics[width=12cm, height=5cm]{./../diagram/classes_files.png}\\
-\hspace*{3cm}\scriptsize\bf Abbildung 1: \normalfont Darstellung der Klassenbeziehungen.\normalsize\\
+Der Fokus liegt auf der Implementierung einer Klasse, dabei nutzen wir insbesondere auch Magic Methods.
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=12cm]{./../diagram/classes_files}
+    \caption{Darstellung der Klassenbeziehungen.}
+\end{figure}
 \subsection{Einleitung}
-Ein Datensatz besteht aus mehreren Daten, ein einzelnes Datum wird durch ein Objekt der Klasse "DataSetItem" repräsentiert.
-Jedes Datum hat einen Namen (Zeichenkette), eine ID (Zahl) und bel. Inhalt.\\
-\\
-Nun sollen mehrere Daten, Objekte vom Typ "DataSetItem", in einem Datensatz zusammengefasst werden.
+Ein Datensatz besteht aus mehreren Daten, ein einzelnes Datum wird durch ein Objekt der Klasse ``DataSetItem`` repräsentiert.
+Jedes Datum hat einen Namen (Zeichenkette), eine ID (Zahl) und bel. Inhalt.
+
+Nun sollen mehrere Daten, Objekte vom Typ ``DataSetItem``, in einem Datensatz zusammengefasst werden.
 Sie haben sich schon auf eine Schnittstelle und die benötigen Operationen, die ein Datensatz unterstützen muss, geeinigt.
-Es gibt eine Klasse "DataSetInterface", die die Schnittstelle definiert und Operationen jedes Datensatzes angibt.
-Bisher fehlt aber noch die Implementierung eines Datensatzes mit allen Operationen.\\
-\\
-Implementieren Sie eine Klasse "DataSet" als eine Unterklasse von "DataSetInterface".\\
-\\
+Es gibt eine Klasse ``DataSetInterface``, die die Schnittstelle definiert und Operationen jedes Datensatzes angibt.
+Bisher fehlt aber noch die Implementierung eines Datensatzes mit allen Operationen.
+
+Implementieren Sie eine Klasse ``DataSet`` als eine Unterklasse von ``DataSetInterface``.
+
 \subsection{Aufbau}
-Es gibt drei Dateien, "dataset.py", "main.py" und "implementation.py"$^*$.
-In der "dataset.py" befinden sich die Klassen "DataSetInterface" und "DataSetItem",
-in der Datei "implementation.py" muss die Klasse "DataSet" implementiert werden.
-Die Datei "main.py" nutzt die Klassen "DataSet" und "DataSetItem" aus den jeweiligen Dateien und testet die Schnittstelle und Operationen von "DataSetInterface".\\
-\\
+Es gibt drei Dateien, ``dataset.py``, ``main.py`` und ``implementation.py``\footnote{Dateien befinden sich im Ordner ``code`` dieses Git-Repositories.}.
+In der ``dataset.py`` befinden sich die Klassen ``DataSetInterface`` und ``DataSetItem``,
+in der Datei ``implementation.py`` muss die Klasse ``DataSet`` implementiert werden.
+Die Datei ``main.py`` nutzt die Klassen ``DataSet`` und ``DataSetItem`` aus den jeweiligen Dateien und testet die Schnittstelle und Operationen von ``DataSetInterface``.
+
 \subsection{Methoden}
-Bei der Klasse "DataSet" sind insbesondere folgenden Methoden zu implementieren, die genaue Spezifikation finden Sie in der "dataset.py":\\
+Bei der Klasse ``DataSet`` sind insbesondere folgenden Methoden zu implementieren, die genaue Spezifikation finden Sie in der ``dataset.py``:
 \begin{itemize}
     \item \texttt{\_\_setitem\_\_(self, name, id\_content)}\\Hinzufügen eines Datums, mit Name, ID und Inhalt
-    \item \texttt{\_\_iadd\_\_(self, item)}\\Hinzufügen eines "DataSetItem"
+    \item \texttt{\_\_iadd\_\_(self, item)}\\Hinzufügen eines ``DataSetItem``
     \item \texttt{\_\_delitem\_\_(self, name)}\\Löschen eines Datums auf Basis des Namens.\\Das heißt auch, dass der Name eines Datums ein eindeutiger Schlüssel ist und jeder Name nur einmal pro Datensatz vorkommen kann.
     \item \texttt{\_\_contains\_\_(self, name)}\\Prüfung, ob ein Datum mit diesem Namen im Datensatz vorhanden ist.
     \item \texttt{\_\_getitem\_\_(self, name)}\\Abrufen des Datums über seinen Namen.
     \item \texttt{\_\_and\_\_(self, dataset)}\\Schnittmenge zweier Datensätze bestimmen und als einen neuen Datensatz zurückgeben.
     \item \texttt{\_\_or\_\_(self, dataset)}\\Vereinigungen zweier Datensätze bestimmen und als einen neuen Datensatz zurückgeben.
-    \item \texttt{\_\_iter\_\_(self)\\}\\Iteration über alle Daten den Datensatzes (es ist möglich eine Sortierung für die Reihenfolge der Iteration anzugeben).
+    \item \texttt{\_\_iter\_\_(self)}\\Iteration über alle Daten den Datensatzes (es ist möglich eine Sortierung für die Reihenfolge der Iteration anzugeben).
     \item \texttt{filtered\_iterate(self, filter)}\\Gefilterte Iteration über einen Datensatz, dabei dient eine Lambda-Funktion mit den Parametern Name und ID für jedes Datum als Filter.
     \item \texttt{\_\_len\_\_(self)}\\Anzahl der Daten in einem Datensatz abrufen.
 \end{itemize}
 
-\\
 \section{Abgabe}
-Programmieren Sie die Klasse "DataSet" in der Datei "implementation.py" zur Lösung der oben beschrieben Aufgabe im VPL.
-Sie können auch direkt auf Ihrem Computer programmieren, dazu finden Sie alle drei benötigten Dateien zum Download im Moodle.\\
-\\
-Das VPL nutzt den gleichen Code, wobei die "main.py" um weitere Testfälle und Überprüfungen erweitert wurde.
-Die Überprüfungen dienen dazu sicherzustellen, dass Sie die richtigen Klassen nutzen.\\
-%
-\hrule\hfill\\[0.2cm]
-$^*$ Dateien befinden sich im Ordner "/code/" dieses Git-Repositories.\\
+Programmieren Sie die Klasse ``DataSet`` in der Datei ``implementation.py`` zur Lösung der oben beschrieben Aufgabe im VPL.
+Sie können auch direkt auf Ihrem Computer programmieren, dazu finden Sie alle drei benötigten Dateien zum Download im Moodle.
+
+Das VPL nutzt den gleichen Code, wobei die ``main.py`` um weitere Testfälle und Überprüfungen erweitert wurde.
+Die Überprüfungen dienen dazu sicherzustellen, dass Sie die richtigen Klassen nutzen.
 \end{document}
