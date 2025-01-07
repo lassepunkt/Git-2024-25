@@ -1,30 +1,29 @@
-\documentclass[]{article}
+\documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc} 
 \usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{spacingtricks}
+
+\onehalfspacing
+
+\title{Werkzeuge für das wissenschaftliche Arbeiten}
+\date{Abgabe: 15.12.2023}
+\author{Python for Machine Learning and Data Science}
 
 \begin{document}
-\bf 
-\Large\noindent  Werkzeuge für das wissenschaftliche Arbeiten\\
-\normalsize Python for Machine Learning and Data Science\\
-\normalfont \hspace*{4.5cm}Abgabe: 15.12.2023\\
-\hrule\hfill\\[0.2cm]
-\bf \large Inhaltsverzeichnis \normalsize \normalfont\\[0.5cm]
-\hspace*{0.5cm} Inhaltsverzeichnis ..................... Seite 1 \\[0.2cm]
-\hspace*{0.5cm} \bf 1. Projektaufgabe \normalfont ................ Seite 1 \\
-\hspace*{1cm}  1.1. Einleitung .................... Seite 1 \\
-\hspace*{1cm}  1.2. Aufbau ......................... Seite 2 \\
-\hspace*{1cm}  1.3. Methoden ..................... Seite 2 \\[0.2cm]
-\hspace*{0.5cm} \bf 2. Abgabe \normalfont .............................. Seite 3 \\
-\hrule\hfill\\[0.2cm]
-\bf \large 1. Projektaufgabe \normalsize \normalfont\\[0.5cm]
+\maketitle
+\tableofcontents
+
+\section{Projektaufgabe}
 In dieser Aufgabe beschäftigen wir uns mit Objektorientierung in Python.
 Der Fokus liegt auf der Implementierung einer Klasse, dabei nutzen wir insbesondere auch Magic Methods.\\
 \\
 \hspace*{2cm}\includegraphics[width=12cm, height=5cm]{./../diagram/classes_files.png}\\
 \hspace*{3cm}\scriptsize\bf Abbildung 1: \normalfont Darstellung der Klassenbeziehungen.\normalsize\\
-\bf 1.1. Einleitung \normalfont\\[0.5cm]
+\subsection{Einleitung}
 Ein Datensatz besteht aus mehreren Daten, ein einzelnes Datum wird durch ein Objekt der Klasse "DataSetItem" repräsentiert.
 Jedes Datum hat einen Namen (Zeichenkette), eine ID (Zahl) und bel. Inhalt.\\
 \\
@@ -35,14 +34,19 @@ Bisher fehlt aber noch die Implementierung eines Datensatzes mit allen Operation
 \\
 Implementieren Sie eine Klasse "DataSet" als eine Unterklasse von "DataSetInterface".\\
 \\
-\bf 1.2. Aufbau \normalfont\\[0.5cm]
+\subsection{Aufbau}
 Es gibt drei Dateien, "dataset.py", "main.py" und "implementation.py"$^*$.
 In der "dataset.py" befinden sich die Klassen "DataSetInterface" und "DataSetItem",
 in der Datei "implementation.py" muss die Klasse "DataSet" implementiert werden.
 Die Datei "main.py" nutzt die Klassen "DataSet" und "DataSetItem" aus den jeweiligen Dateien und testet die Schnittstelle und Operationen von "DataSetInterface".\\
 \\
-\bf 1.3. Methoden \normalfont\\[0.5cm]
+\subsection{Methoden}
 Bei der Klasse "DataSet" sind insbesondere folgenden Methoden zu implementieren, die genaue Spezifikation finden Sie in der "dataset.py":\\
+\begin{itemize}
+    \item \texttt{\_\_setitem\_\_(self, name, id\_content)}\\Hinzufügen eines Datums, mit Name, ID und Inhalt
+    \item \texttt{\_\_iadd\_\_(self, item)}\\Hinzufügen eines "DataSetItem"
+    \item \texttt{\_\_delitem\_\_(self, name)}\\Löschen eines Datums auf Basis des Namens.\\Das heißt auch, dass der Name eines Datums ein eindeutiger Schlüssel ist und jeder Name nur einmal pro Datensatz vorkommen kann.
+\end{itemize}
 $\bullet$ \_\_setitem\_\_(self, name, id\_content)\\
 \hspace*{1cm} Hinzufügen eines Datums, mit Name, ID und Inhalt\\
 $\bullet$ \_\_iadd\_\_(self, item)\\
@@ -65,7 +69,7 @@ $\bullet$ filtered\_iterate(self, filter)\\
 $\bullet$ \_\_len\_\_(self)\\
 \hspace*{1cm} Anzahl der Daten in einem Datensatz abrufen.\\
 \\
-\bf \large 2. Abgabe \normalsize \normalfont\\[0.5cm]
+\section{Abgabe}
 Programmieren Sie die Klasse "DataSet" in der Datei "implementation.py" zur Lösung der oben beschrieben Aufgabe im VPL.
 Sie können auch direkt auf Ihrem Computer programmieren, dazu finden Sie alle drei benötigten Dateien zum Download im Moodle.\\
 \\
