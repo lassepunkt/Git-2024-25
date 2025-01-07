@@ -46,28 +46,15 @@ Bei der Klasse "DataSet" sind insbesondere folgenden Methoden zu implementieren,
     \item \texttt{\_\_setitem\_\_(self, name, id\_content)}\\Hinzufügen eines Datums, mit Name, ID und Inhalt
     \item \texttt{\_\_iadd\_\_(self, item)}\\Hinzufügen eines "DataSetItem"
     \item \texttt{\_\_delitem\_\_(self, name)}\\Löschen eines Datums auf Basis des Namens.\\Das heißt auch, dass der Name eines Datums ein eindeutiger Schlüssel ist und jeder Name nur einmal pro Datensatz vorkommen kann.
+    \item \texttt{\_\_contains\_\_(self, name)}\\Prüfung, ob ein Datum mit diesem Namen im Datensatz vorhanden ist.
+    \item \texttt{\_\_getitem\_\_(self, name)}\\Abrufen des Datums über seinen Namen.
+    \item \texttt{\_\_and\_\_(self, dataset)}\\Schnittmenge zweier Datensätze bestimmen und als einen neuen Datensatz zurückgeben.
+    \item \texttt{\_\_or\_\_(self, dataset)}\\Vereinigungen zweier Datensätze bestimmen und als einen neuen Datensatz zurückgeben.
+    \item \texttt{\_\_iter\_\_(self)\\}\\Iteration über alle Daten den Datensatzes (es ist möglich eine Sortierung für die Reihenfolge der Iteration anzugeben).
+    \item \texttt{filtered\_iterate(self, filter)}\\Gefilterte Iteration über einen Datensatz, dabei dient eine Lambda-Funktion mit den Parametern Name und ID für jedes Datum als Filter.
+    \item \texttt{\_\_len\_\_(self)}\\Anzahl der Daten in einem Datensatz abrufen.
 \end{itemize}
-$\bullet$ \_\_setitem\_\_(self, name, id\_content)\\
-\hspace*{1cm} Hinzufügen eines Datums, mit Name, ID und Inhalt\\
-$\bullet$ \_\_iadd\_\_(self, item)\\
-\hspace*{1cm} Hinzufügen eines "DataSetItem"\\
-$\bullet$ \_\_delitem\_\_(self, name)\\
-\hspace*{1cm} Löschen eines Datums auf Basis des Namens.\\
-\hspace*{1cm} Das heißt auch, dass der Name eines Datums ein eindeutiger Schlüssel ist und jeder Name nur einmal pro Datensatz vorkommen kann.\\
-$\bullet$ \_\_contains\_\_(self, name)\\
-\hspace*{1cm} Prüfung, ob ein Datum mit diesem Namen im Datensatz vorhanden ist.\\
-$\bullet$ \_\_getitem\_\_(self, name)\\
-\hspace*{1cm} Abrufen des Datums über seinen Namen.\\ 
-$\bullet$ \_\_and\_\_(self, dataset)\\
-\hspace*{1cm} Schnittmenge zweier Datensätze bestimmen und als einen neuen Datensatz zurückgeben.\\
-$\bullet$ \_\_or\_\_(self, dataset)\\
-\hspace*{1cm} Vereinigungen zweier Datensätze bestimmen und als einen neuen Datensatz zurückgeben.\\
-$\bullet$ \_\_iter\_\_(self)\\
-\hspace*{1cm} Iteration über alle Daten den Datensatzes (es ist möglich eine Sortierung für die Reihenfolge der Iteration anzugeben).\\ 
-$\bullet$ filtered\_iterate(self, filter)\\
-\hspace*{1cm} Gefilterte Iteration über einen Datensatz, dabei dient eine Lambda-Funktion mit den Parametern Name und ID für jedes Datum als Filter.\\
-$\bullet$ \_\_len\_\_(self)\\
-\hspace*{1cm} Anzahl der Daten in einem Datensatz abrufen.\\
+
 \\
 \section{Abgabe}
 Programmieren Sie die Klasse "DataSet" in der Datei "implementation.py" zur Lösung der oben beschrieben Aufgabe im VPL.
